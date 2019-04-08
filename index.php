@@ -1,11 +1,22 @@
+<!--
+Trang Luu
+04.07.2019
+http://tluu9.greenriverdev.com/IT328/cupcakes/index.php
+This is a web page for cupcake fundraiser included an order form with given valid
+input and then display a thank you message, a list of the cupcakes the user ordered,
+and their total due
+-->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <!--Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <title>Cupcakes</title>
 </head>
 <body>
+
+<!-- Form -->
 <div class="form-row">
     <div class="form-group col-md-6">
         <h2>Cupcake Fundraiser</h2>
@@ -30,15 +41,24 @@
             <br>
 
         </form>
+
+        <!-- Validation-->
         <?php
 
         $name = $_POST['name'];
         if(isset($_POST['submit'])){
             if(!empty($_POST['flavor'])) {
+
+                //Message
                 echo "<br>Thank you,  ". $_POST['name']. " ,for your order!<br />";
+
+                //Count selection
                 $count = count($_POST['flavor']);
+
+                //Calculate the total
                 $total = $count * 3.50;
 
+                //Display order and total
                 echo "<br>Order Summary: ";
                 foreach($_POST['flavor'] as $selected) {
                     echo "<p><li>".$selected ."</p>";
